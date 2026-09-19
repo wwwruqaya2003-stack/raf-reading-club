@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>رَف | نادي القراءة</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Cairo",sans-serif;
+  background:#f8f6f0;
+  color:#292b25;
+  line-height:1.7;
+}
+
+button,
+input{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+/* =========================
+   COLORS
+========================= */
+
+:root{
+  --cream:#f8f6f0;
+  --card:#efede5;
+  --white:#ffffff;
+  --green:#4b5948;
+  --green-dark:#303b2f;
+  --brown:#685344;
+  --gold:#c8943d;
+  --text:#292b25;
+  --muted:#77766e;
+  --border:#dfddd4;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  height:80px;
+  background:rgba(250,249,245,.97);
+  border-bottom:1px solid #e5e2d9;
+  display:flex;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  backdrop-filter:blur(12px);
+}
+
+.nav{
+  width:min(1320px,92%);
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:27px;
+  font-weight:800;
+  color:#242921;
+}
+
+.logo-icon{
+  font-size:38px;
+  line-height:1;
+}
+
+.logo small{
+  display:block;
+  font-size:9px;
+  font-weight:500;
+  color:#777;
+  margin-top:-5px;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:38px;
+  font-size:14px;
+  font-weight:600;
+}
+
+.menu a{
+  position:relative;
+  padding:27px 0;
+}
+
+.menu a.active::after{
+  content:"";
+  position:absolute;
+  bottom:16px;
+  right:0;
+  width:100%;
+  height:2px;
+  background:var(--green);
+}
+
+.search{
+  width:235px;
+  height:38px;
+  border:1px solid #dddcd5;
+  border-radius:22px;
+  background:#faf9f6;
+  display:flex;
+  align-items:center;
+  padding:0 14px;
+  color:#aaa;
+}
+
+.search input{
+  border:0;
+  outline:0;
+  background:transparent;
+  width:100%;
+  font-size:12px;
+  color:#444;
+}
+
+.search span{
+  font-size:16px;
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  gap:19px;
+}
+
+.action{
+  font-size:20px;
+  color:#444;
+  position:relative;
+}
+
+.user-circle{
+  width:34px;
+  height:34px;
+  background:#414640;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:17px;
+}
+
+.notification-dot{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:#b52c2c;
+  border-radius:50%;
+  top:-1px;
+  right:-1px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:292px;
+  position:relative;
+  overflow:hidden;
+  background:
+  linear-gradient(
+    90deg,
+    rgba(61,47,36,.04),
+    rgba(247,244,235,.94) 62%,
+    rgba(247,244,235,1)
+  ),
+  url("https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1800&q=85");
+
+  background-size:cover;
+  background-position:center;
+}
+
+.hero-content{
+  width:min(1320px,92%);
+  margin:auto;
+  min-height:292px;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+}
+
+.hero-text{
+  width:48%;
+  padding-right:50px;
+}
+
+.hero h1{
+  font-family:"Amiri",serif;
+  font-size:47px;
+  color:#40372e;
+  margin-bottom:5px;
+}
+
+.hero h2{
+  font-family:"Amiri",serif;
+  font-size:25px;
+  font-weight:400;
+  margin-bottom:13px;
+}
+
+.hero p{
+  color:#66645d;
+  font-size:14px;
+  max-width:450px;
+  margin-bottom:20px;
+}
+
+.main-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:var(--green);
+  color:white;
+  padding:10px 22px;
+  border-radius:24px;
+  border:0;
+  font-size:13px;
+  transition:.25s;
+}
+
+.main-btn:hover{
+  background:var(--green-dark);
+  transform:translateY(-2px);
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+.container{
+  width:min(1320px,92%);
+  margin:26px auto;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:14px;
+}
+
+.section-title h2{
+  font-size:20px;
+  font-weight:800;
+}
+
+.section-title a{
+  font-size:12px;
+  color:#777;
+}
+
+.grid{
+  display:grid;
+  gap:12px;
+}
+
+
+/* =========================
+   TOP CONTENT
+========================= */
+
+.top-grid{
+  display:grid;
+  grid-template-columns:1.05fr 1.6fr;
+  gap:12px;
+}
+
+.month-card{
+  background:#ece9df;
+  border:1px solid #e2dfd5;
+  border-radius:7px;
+  padding:16px;
+  min-height:255px;
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+.month-cover{
+  width:145px;
+  height:205px;
+  flex-shrink:0;
+  border-radius:5px;
+  overflow:hidden;
+  box-shadow:0 5px 12px rgba(0,0,0,.14);
+}
+
+.month-cover img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.month-info{
+  flex:1;
+}
+
+.small-label{
+  color:#76604e;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.month-info h2{
+  font-family:"Amiri",serif;
+  font-size:25px;
+  margin-bottom:2px;
+}
+
+.author{
+  color:#777;
+  font-size:12px;
+  margin-bottom:14px;
+}
+
+.description{
+  font-size:12px;
+  color:#666;
+  line-height:2;
+  margin-bottom:14px;
+}
+
+
+/* =========================
+   RECOMMENDED BOOKS
+========================= */
+
+.recommended{
+  background:#fff;
+  border:1px solid #e4e1d9;
+  border-radius:7px;
+  padding:16px;
+}
+
+.book-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.book-card{
+  border:1px solid #e5e2db;
+  border-radius:7px;
+  background:#fff;
+  overflow:hidden;
+  transition:.25s;
+}
+
+.book-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 7px 18px rgba(0,0,0,.08);
+}
+
+.book-cover{
+  height:155px;
+  background:#ded9cc;
+  overflow:hidden;
+}
+
+.book-cover img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.book-info{
+  padding:8px 9px 10px;
+}
+
+.book-info h3{
+  font-size:12px;
+  margin-bottom:2px;
+}
+
+.book-info p{
+  font-size:10px;
+  color:#777;
+}
+
+.rating{
+  margin-top:6px;
+  font-size:10px;
+  color:var(--gold);
+}
+
+
+/* =========================
+   MIDDLE
+========================= */
+
+.middle-grid{
+  display:grid;
+  grid-template-columns:1.1fr 1.8fr .95fr;
+  gap:12px;
+}
+
+.panel{
+  background:#fff;
+  border:1px solid #e4e1d9;
+  border-radius:7px;
+  padding:15px;
+}
+
+.panel h2{
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+.review{
+  min-height:165px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.review-text{
+  font-family:"Amiri",serif;
+  font-size:15px;
+  line-height:2;
+}
+
+.review-name{
+  font-size:11px;
+  font-weight:700;
+}
+
+.review-stars{
+  color:var(--gold);
+  letter-spacing:2px;
+}
+
+.mini-books{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.mini-book{
+  text-align:center;
+}
+
+.mini-book-img{
+  height:115px;
+  border-radius:6px;
+  overflow:hidden;
+  background:#ddd;
+  margin-bottom:6px;
+}
+
+.mini-book-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.mini-book h3{
+  font-size:11px;
+}
+
+.mini-book p{
+  color:#888;
+  font-size:9px;
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.category{
+  flex:1 1 42%;
+  background:#faf9f5;
+  border:1px solid #e5e2da;
+  padding:7px 9px;
+  border-radius:18px;
+  text-align:center;
+  font-size:10px;
+  transition:.2s;
+}
+
+.category:hover{
+  background:#ebe9df;
+}
+
+
+/* =========================
+   POETRY SECTION
+========================= */
+
+.poetry-section{
+  margin-top:12px;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(245,242,234,.98),
+      rgba(239,236,226,.96)
+    );
+  border:1px solid #dedbd1;
+  border-radius:7px;
+  padding:20px;
+  position:relative;
+  overflow:hidden;
+}
+
+.poetry-section::before{
+  content:"❞";
+  position:absolute;
+  left:35px;
+  top:-28px;
+  font-family:"Amiri",serif;
+  font-size:160px;
+  color:rgba(86,97,78,.08);
+}
+
+.poetry-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:16px;
+  position:relative;
+  z-index:2;
+}
+
+.poetry-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.poetry-title .icon{
+  width:39px;
+  height:39px;
+  border-radius:50%;
+  background:#596550;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+}
+
+.poetry-title h2{
+  font-family:"Amiri",serif;
+  font-size:27px;
+}
+
+.poetry-title p{
+  font-size:10px;
+  color:#777;
+}
+
+.poetry-link{
+  font-size:11px;
+  color:#596550;
+  font-weight:700;
+}
+
+.poetry-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  position:relative;
+  z-index:2;
+}
+
+.poem-card{
+  min-height:185px;
+  background:rgba(255,255,255,.76);
+  border:1px solid #e2dfd6;
+  border-radius:7px;
+  padding:15px;
+  position:relative;
+  overflow:hidden;
+  transition:.25s;
+}
+
+.poem-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 7px 17px rgba(0,0,0,.07);
+}
+
+.poem-card::after{
+  content:"";
+  position:absolute;
+  bottom:-28px;
+  left:-20px;
+  width:90px;
+  height:90px;
+  border:1px solid #d8d4c9;
+  border-radius:50%;
+}
+
+.poem-type{
+  font-size:9px;
+  color:#8a816f;
+  margin-bottom:7px;
+}
+
+.poem-card h3{
+  font-family:"Amiri",serif;
+  font-size:21px;
+  margin-bottom:2px;
+}
+
+.poet{
+  color:#777;
+  font-size:10px;
+  margin-bottom:10px;
+}
+
+.poem-line{
+  font-family:"Amiri",serif;
+  font-size:13px;
+  color:#4d4b44;
+  line-height:1.9;
+}
+
+.read-poem{
+  position:absolute;
+  bottom:10px;
+  right:15px;
+  font-size:10px;
+  color:#596550;
+}
+
+
+/* =========================
+   LOWER FEATURE
+========================= */
+
+.lower-grid{
+  display:grid;
+  grid-template-columns:1.8fr .9fr;
+  gap:12px;
+  margin-top:12px;
+}
+
+.club{
+  background:#fff;
+  border:1px solid #e2dfd6;
+  border-radius:7px;
+  min-height:155px;
+  display:grid;
+  grid-template-columns:35% 65%;
+  overflow:hidden;
+}
+
+.club-image{
+  background:
+    linear-gradient(rgba(40,30,20,.1),rgba(40,30,20,.1)),
+    url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=85");
+  background-size:cover;
+  background-position:center;
+}
+
+.club-content{
+  padding:20px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.club-icon{
+  font-size:45px;
+}
+
+.club-content h2{
+  font-size:22px;
+}
+
+.club-content p{
+  color:#777;
+  font-size:11px;
+  margin-bottom:9px;
+}
+
+.suggestion{
+  background:#fff;
+  border:1px solid #e2dfd6;
+  border-radius:7px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.suggestion h2{
+  font-size:18px;
+  margin-bottom:5px;
+}
+
+.suggestion p{
+  font-size:10px;
+  color:#777;
+  margin-bottom:15px;
+}
+
+
+/* =========================
+   NEWSLETTER
+========================= */
+
+.newsletter{
+  margin-top:12px;
+  min-height:115px;
+  border-radius:6px;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(25,29,38,.94),
+      rgba(34,38,49,.76)
+    ),
+    url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1500&q=80");
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:22px 50px;
+}
+
+.newsletter h2{
+  font-family:"Amiri",serif;
+  font-size:22px;
+}
+
+.newsletter p{
+  font-size:10px;
+  color:#d8d8d8;
+}
+
+.subscribe{
+  width:370px;
+  height:38px;
+  background:#fff;
+  border-radius:22px;
+  display:flex;
+  overflow:hidden;
+}
+
+.subscribe input{
+  flex:1;
+  border:0;
+  outline:0;
+  padding:0 16px;
+  font-size:10px;
+}
+
+.subscribe button{
+  width:75px;
+  border:0;
+  background:#262a2d;
+  color:#fff;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  min-height:72px;
+  background:#f9f8f4;
+  border-top:1px solid #e1ded6;
+  display:flex;
+  align-items:center;
+}
+
+.footer-inner{
+  width:min(1320px,92%);
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.footer-logo{
+  font-size:22px;
+  font-weight:800;
+}
+
+.footer-links{
+  display:flex;
+  gap:25px;
+  font-size:10px;
+  color:#777;
+}
+
+.social{
+  display:flex;
+  gap:13px;
+  color:#555;
+}
+
+
+/* =========================
+   POETRY PAGE
+========================= */
+
+.page{
+  display:none;
+  width:min(1320px,92%);
+  margin:35px auto 60px;
+}
+
+.page.active{
+  display:block;
+}
+
+.page-header{
+  background:#eeece4;
+  border-radius:8px;
+  padding:35px;
+  margin-bottom:20px;
+  text-align:center;
+}
+
+.page-header h1{
+  font-family:"Amiri",serif;
+  font-size:42px;
+}
+
+.page-header p{
+  color:#777;
+  font-size:13px;
+}
+
+.poems-page-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.big-poem{
+  background:#fff;
+  border:1px solid #e2dfd6;
+  border-radius:8px;
+  padding:25px;
+  min-height:260px;
+}
+
+.big-poem h2{
+  font-family:"Amiri",serif;
+  font-size:28px;
+}
+
+.big-poem .poet{
+  margin-bottom:20px;
+}
+
+.big-poem-text{
+  font-family:"Amiri",serif;
+  font-size:18px;
+  line-height:2.2;
+  color:#49463f;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:3000;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.login-box{
+  width:min(400px,90%);
+  background:#fff;
+  border-radius:12px;
+  padding:30px;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  left:18px;
+  top:14px;
+  border:0;
+  background:none;
+  font-size:22px;
+}
+
+.login-box h2{
+  font-family:"Amiri",serif;
+  font-size:28px;
+  margin-bottom:4px;
+}
+
+.login-box p{
+  color:#777;
+  font-size:11px;
+  margin-bottom:20px;
+}
+
+.login-box input{
+  width:100%;
+  height:42px;
+  border:1px solid #ddd;
+  border-radius:7px;
+  padding:0 12px;
+  margin-bottom:10px;
+  outline:none;
+}
+
+.login-box button{
+  width:100%;
+  height:42px;
+  border:0;
+  border-radius:7px;
+  background:var(--green);
+  color:#fff;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+  .menu{
+    gap:15px;
+  }
+
+  .search{
+    width:160px;
+  }
+
+  .top-grid,
+  .middle-grid,
+  .lower-grid{
+    grid-template-columns:1fr;
+  }
+
+  .poetry-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .poems-page-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+
+  header{
+    height:auto;
+    padding:10px 0;
+  }
+
+  .nav{
+    flex-wrap:wrap;
+  }
+
+  .menu{
+    order:3;
+    width:100%;
+    justify-content:center;
+    overflow-x:auto;
+    gap:20px;
+  }
+
+  .menu a{
+    padding:8px 0;
+    white-space:nowrap;
+  }
+
+  .menu a.active::after{
+    bottom:0;
+  }
+
+  .search{
+    width:150px;
+  }
+
+  .hero-text{
+    width:100%;
+    padding:35px 0;
+  }
+
+  .hero h1{
+    font-size:37px;
+  }
+
+  .book-row{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .mini-books{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .poetry-grid,
+  .poems-page-grid{
+    grid-template-columns:1fr;
+  }
+
+  .club{
+    grid-template-columns:1fr;
+  }
+
+  .club-image{
+    height:160px;
+  }
+
+  .newsletter{
+    flex-direction:column;
+    gap:15px;
+    align-items:stretch;
+    padding:25px;
+  }
+
+  .subscribe{
+    width:100%;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    gap:15px;
+    padding:15px 0;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="nav">
+
+  <div class="logo">
+    <div>
+      رَف
+      <small>اقرأ، تأمل، شارك</small>
+    </div>
+    <div class="logo-icon">📚</div>
+  </div>
+
+
+  <nav class="menu">
+
+    <a href="#" class="active" onclick="showHome()">الرئيسية</a>
+
+    <a href="#books" onclick="showHome()">الكتب</a>
+
+    <a href="#poetry" onclick="showPoetry()">الأشعار</a>
+
+    <a href="#club" onclick="showHome()">نادي القراءة</a>
+
+    <a href="#community" onclick="showHome()">المجتمع</a>
+
+    <a href="#suggest" onclick="showHome()">اقترح كتابًا</a>
+
+  </nav>
+
+
+  <div class="search">
+
+    <span>⌕</span>
+
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="ابحث عن كتاب أو مؤلف..."
+      onkeyup="searchBooks()"
+    >
+
+  </div>
+
+
+  <div class="actions">
+
+    <button
+      class="action"
+      style="border:0;background:none"
+      onclick="openLogin()"
+    >
+      <span class="user-circle">♙</span>
+    </button>
+
+    <div class="action">
+      ♧
+      <span class="notification-dot"></span>
+    </div>
+
+    <div class="action">♡</div>
+
+  </div>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<main id="homePage">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-text">
+
+      <h1>أهلًا بك في رَف</h1>
+
+      <h2>مكان يجمع القرّاء والكتب والآراء.</h2>
+
+      <p>
+        هنا نكتشف كتبًا جديدة، نشارك مراجعاتنا،
+        ونبني معًا مجتمعًا يحب القراءة.
+      </p>
+
+      <button class="main-btn" onclick="scrollToBooks()">
+        ابدأ رحلتك الآن ←
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<div class="container">
+
+
+<!-- =========================
+     TOP GRID
+========================= -->
+
+<section class="top-grid">
+
+
+<!-- BOOK OF MONTH -->
+
+<div class="month-card">
+
+  <div class="month-cover">
+
+    <img
+      src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=85"
+      alt="كتاب الشهر"
+    >
+
+  </div>
+
+
+  <div class="month-info">
+
+    <div class="small-label">
+      كتاب الشهر
+    </div>
+
+    <h2>
+      أمير على ضفاف النهر
+    </h2>
+
+    <div class="author">
+      أحلام مستغانمي
+    </div>
+
+    <p class="description">
+      رواية تأخذك في رحلة بين الحب والذاكرة
+      والهوية، حيث تتقاطع حياة شخصيات مختلفة
+      على ضفاف النهر.
+    </p>
+
+    <button class="main-btn">
+      انضم للنقاش ←
+    </button>
+
+  </div>
+
+</div>
+
+
+
+<!-- RECOMMENDED -->
+
+<div class="recommended">
+
+  <div class="section-title">
+
+    <h2>كتب ننصح بها</h2>
+
+    <a href="#books">
+      عرض الكل
+    </a>
+
+  </div>
+
+
+  <div class="book-row">
+
+
+    <div class="book-card">
+
+      <div class="book-cover">
+
+        <img
+          src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=400&q=80"
+          alt="كتاب"
+        >
+
+      </div>
+
+      <div class="book-info">
+
+        <h3>1984</h3>
+
+        <p>جورج أورويل</p>
+
+        <div class="rating">
+          ★ 4.6
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="book-card">
+
+      <div class="book-cover">
+
+        <img
+          src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=400&q=80"
+          alt="كتاب"
+        >
+
+      </div>
+
+      <div class="book-info">
+
+        <h3>مئة عام من العزلة</h3>
+
+        <p>غابرييل غارسيا ماركيز</p>
+
+        <div class="rating">
+          ★ 4.8
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="book-card">
+
+      <div class="book-cover">
+
+        <img
+          src="https://images.unsplash.com/photo-1511108690759-009324a90311?auto=format&fit=crop&w=400&q=80"
+          alt="كتاب"
+        >
+
+      </div>
+
+      <div class="book-info">
+
+        <h3>البحث عن الزمن</h3>
+
+        <p>مارسيل بروست</p>
+
+        <div class="rating">
+          ★ 4.5
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="book-card">
+
+      <div class="book-cover">
+
+        <img
+          src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80"
+          alt="كتاب"
+        >
+
+      </div>
+
+      <div class="book-info">
+
+        <h3>الخطيئة الجميلة</h3>
+
+        <p>باولو كويلو</p>
+
+        <div class="rating">
+          ★ 4.4
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     MIDDLE
+========================= -->
+
+<section class="middle-grid" style="margin-top:12px;">
+
+
+<!-- REVIEW -->
+
+<div class="panel review">
+
+  <div>
+
+    <div class="section-title">
+      <h2>من آراء القراء</h2>
+      <a href="#">عرض الكل</a>
+    </div>
+
+    <p class="review-text">
+      "هذا الكتاب جعلني أرى الحياة من زاوية
+      أعمق، وأعاد لي الإيمان بأن كل شيء
+      سيكون بخير في النهاية."
+    </p>
+
+  </div>
+
+  <div>
+
+    <div class="review-name">
+      — رقية علي
+    </div>
+
+    <div class="review-stars">
+      ★★★★★
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- DISCUSSIONS -->
+
+<div class="panel">
+
+  <div class="section-title">
+
+    <h2>الأكثر نقاشًا</h2>
+
+    <a href="#">عرض الكل</a>
+
+  </div>
+
+
+  <div class="mini-books">
+
+
+    <div class="mini-book">
+
+      <div class="mini-book-img">
+
+        <img
+          src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80"
+        >
+
+      </div>
+
+      <h3>قواعد العشق الأربعون</h3>
+
+      <p>620 نقاش</p>
+
+    </div>
+
+
+
+    <div class="mini-book">
+
+      <div class="mini-book-img">
+
+        <img
+          src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80"
+        >
+
+      </div>
+
+      <h3>الأجنحة المتكسرة</h3>
+
+      <p>756 نقاش</p>
+
+    </div>
+
+
+
+    <div class="mini-book">
+
+      <div class="mini-book-img">
+
+        <img
+          src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=400&q=80"
+        >
+
+      </div>
+
+      <h3>جريمة في قطار الشرق</h3>
+
+      <p>980 نقاش</p>
+
+    </div>
+
+
+
+    <div class="mini-book">
+
+      <div class="mini-book-img">
+
+        <img
+          src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=400&q=80"
+        >
+
+      </div>
+
+      <h3>مئة عام من العزلة</h3>
+
+      <p>1.2k نقاش</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- CATEGORIES -->
+
+<div class="panel">
+
+  <h2>
+    اكتشف كتابك القادم
+  </h2>
+
+  <p style="font-size:10px;color:#777;margin-bottom:12px">
+    اختر من تصنيفاتنا أو ابدأ من اقتراحات القرّاء.
+  </p>
+
+
+  <div class="categories">
+
+    <div class="category">📚 روايات</div>
+
+    <div class="category">🕰 تاريخ</div>
+
+    <div class="category">💭 فلسفة</div>
+
+    <div class="category">♡ رومانسي</div>
+
+    <div class="category">🔍 غموض</div>
+
+    <div class="category">🌿 شعر</div>
+
+  </div>
+
+  <div style="font-size:10px;color:#596550;margin-top:12px">
+    استكشف جميع التصنيفات ←
+  </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     POETRY
+========================= -->
+
+<section class="poetry-section" id="poetry">
+
+  <div class="poetry-header">
+
+    <div class="poetry-title">
+
+      <div class="icon">
+        ❝
+      </div>
+
+      <div>
+
+        <h2>من عالم الأشعار</h2>
+
+        <p>
+          كلمات تُقرأ بهدوء وتبقى طويلًا.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <a
+      href="#"
+      class="poetry-link"
+      onclick="showPoetry()"
+    >
+      استكشف جميع الأشعار ←
+    </a>
+
+  </div>
+
+
+  <div class="poetry-grid">
+
+
+    <article class="poem-card">
+
+      <div class="poem-type">
+        قصيدة حب
+      </div>
+
+      <h3>
+        أحبك جدًا
+      </h3>
+
+      <div class="poet">
+        نزار قباني
+      </div>
+
+      <p class="poem-line">
+        أحبك جدًا، وأعرف أن الطريق
+        إلى المستحيل طويل...
+      </p>
+
+      <span class="read-poem">
+        اقرأ القصيدة ←
+      </span>
+
+    </article>
+
+
+
+    <article class="poem-card">
+
+      <div class="poem-type">
+        قصيدة وجدانية
+      </div>
+
+      <h3>
+        أنشودة المطر
+      </h3>
+
+      <div class="poet">
+        بدر شاكر السياب
+      </div>
+
+      <p class="poem-line">
+        عيناك غابتا نخيلٍ ساعة السحر،
+        أو شرفتان راح ينأى عنهما القمر...
+      </p>
+
+      <span class="read-poem">
+        اقرأ القصيدة ←
+      </span>
+
+    </article>
+
+
+
+    <article class="poem-card">
+
+      <div class="poem-type">
+        شعر عربي
+      </div>
+
+      <h3>
+        إلى أمي
+      </h3>
+
+      <div class="poet">
+        محمود درويش
+      </div>
+
+      <p class="poem-line">
+        أحن إلى خبز أمي،
+        وقهوة أمي، ولمسة أمي...
+      </p>
+
+      <span class="read-poem">
+        اقرأ القصيدة ←
+      </span>
+
+    </article>
+
+
+
+    <article class="poem-card">
+
+      <div class="poem-type">
+        قصيدة تأمل
+      </div>
+
+      <h3>
+        كن جميلًا
+      </h3>
+
+      <div class="poet">
+        إيليا أبو ماضي
+      </div>
+
+      <p class="poem-line">
+        أيهذا الشاكي وما بك داء،
+        كن جميلًا ترَ الوجود جميلًا...
+      </p>
+
+      <span class="read-poem">
+        اقرأ القصيدة ←
+      </span>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     CLUB + SUGGESTION
+========================= -->
+
+<section class="lower-grid" id="club">
+
+
+<div class="club">
+
+  <div class="club-image"></div>
+
+
+  <div class="club-content">
+
+    <div class="club-icon">
+      ♧
+    </div>
+
+    <div>
+
+      <h2>
+        نادي القراءة
+      </h2>
+
+      <p>
+        كل شهر كتاب جديد... وكل شهر نقاش أعمق.
+      </p>
+
+      <button class="main-btn">
+        اكتشف نادي القراءة ←
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<div class="suggestion" id="suggest">
+
+  <h2>
+    اقترح كتابًا 📖
+  </h2>
+
+  <p>
+    لديك كتاب تحبه؟ شارك اقتراحك مع مجتمعنا.
+  </p>
+
+  <button
+    class="main-btn"
+    onclick="openSuggestion()"
+  >
+    اقترح كتابًا
+  </button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     NEWSLETTER
+========================= -->
+
+<section class="newsletter">
+
+  <div>
+
+    <h2>
+      اشترك في نشرتنا البريدية
+    </h2>
+
+    <p>
+      ليصلك كل جديد عن الكتب، نادي القراءة، والتوصيات.
+    </p>
+
+  </div>
+
+
+  <div class="subscribe">
+
+    <input
+      type="email"
+      placeholder="أدخل بريدك الإلكتروني"
+    >
+
+    <button onclick="subscribe()">
+      اشترك
+    </button>
+
+  </div>
+
+</section>
+
+</div>
+
+</main>
+
+
+
+<!-- =========================
+     POETRY PAGE
+========================= -->
+
+<section id="poetryPage" class="page">
+
+  <div class="page-header">
+
+    <h1>
+      عالم الأشعار
+    </h1>
+
+    <p>
+      لأن بعض الكلمات لا تُقرأ فقط... بل تُشعر.
+    </p>
+
+  </div>
+
+
+  <div class="poems-page-grid">
+
+
+    <article class="big-poem">
+
+      <h2>
+        أحبك جدًا
+      </h2>
+
+      <div class="poet">
+        نزار قباني
+      </div>
+
+      <div class="big-poem-text">
+
+        أحبك جدًا<br>
+        وأعرف أن الطريق إلى المستحيل طويل<br>
+        وأعرف أنك ست النساء<br>
+        وليس لدي بديل
+
+      </div>
+
+    </article>
+
+
+
+    <article class="big-poem">
+
+      <h2>
+        أنشودة المطر
+      </h2>
+
+      <div class="poet">
+        بدر شاكر السياب
+      </div>
+
+      <div class="big-poem-text">
+
+        عيناك غابتا نخيلٍ ساعة السحر<br>
+        أو شرفتان راح ينأى عنهما القمر<br>
+        عيناك حين تبسمان تورق الكروم
+
+      </div>
+
+    </article>
+
+
+
+    <article class="big-poem">
+
+      <h2>
+        كن جميلًا
+      </h2>
+
+      <div class="poet">
+        إيليا أبو ماضي
+      </div>
+
+      <div class="big-poem-text">
+
+        أيهذا الشاكي وما بك داء<br>
+        كن جميلًا ترَ الوجود جميلًا<br>
+        والذي نفسه بغير جمال<br>
+        لا يرى في الوجود شيئًا جميلًا
+
+      </div>
+
+    </article>
+
+
+
+    <article class="big-poem">
+
+      <h2>
+        إلى أمي
+      </h2>
+
+      <div class="poet">
+        محمود درويش
+      </div>
+
+      <div class="big-poem-text">
+
+        أحن إلى خبز أمي<br>
+        وقهوة أمي<br>
+        ولمسة أمي<br>
+        وتكبر فيَّ الطفولة
+
+      </div>
+
+    </article>
+
+
+
+    <article class="big-poem">
+
+      <h2>
+        رسالة حب
+      </h2>
+
+      <div class="poet">
+        فاروق جويدة
+      </div>
+
+      <div class="big-poem-text">
+
+        في عينيك شيء من الحكايات<br>
+        شيء من الربيع<br>
+        وشيء من وطن بعيد
+
+      </div>
+
+    </article>
+
+
+
+    <article class="big-poem">
+
+      <h2>
+        لا شيء يعجبني
+      </h2>
+
+      <div class="poet">
+        محمود درويش
+      </div>
+
+      <div class="big-poem-text">
+
+        أريد من الوقت أن يتوقف<br>
+        قليلًا<br>
+        كي أرى ما فاتني من الطريق
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+  <div class="social">
+    ◎
+    𝕏
+    ▶
+    ◉
+  </div>
+
+  <div class="footer-links">
+
+    <a href="#">من نحن</a>
+
+    <span>|</span>
+
+    <a href="#">شروط الاستخدام</a>
+
+    <span>|</span>
+
+    <a href="#">سياسة الخصوصية</a>
+
+  </div>
+
+  <div class="footer-logo">
+    رَف 📚
+  </div>
+
+</div>
+
+</footer>
+
+
+
+<!-- =========================
+     LOGIN MODAL
+========================= -->
+
+<div class="modal" id="loginModal">
+
+  <div class="login-box">
+
+    <button class="close" onclick="closeLogin()">
+      ×
+    </button>
+
+    <h2>
+      أهلًا بك في رَف
+    </h2>
+
+    <p>
+      سجّل دخولك حتى تشارك في المناقشات وتحفظ كتبك.
+    </p>
+
+    <input
+      type="text"
+      placeholder="اسم المستخدم أو البريد"
+    >
+
+    <input
+      type="password"
+      placeholder="كلمة المرور"
+    >
+
+    <button onclick="login()">
+      تسجيل الدخول
+    </button>
+
+  </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function showHome(){
+
+  document.getElementById("homePage").style.display="block";
+  document.getElementById("poetryPage").classList.remove("active");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+function showPoetry(){
+
+  event.preventDefault();
+
+  document.getElementById("homePage").style.display="none";
+
+  document.getElementById("poetryPage").classList.add("active");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================
+   SCROLL
+========================= */
+
+function scrollToBooks(){
+
+  document.getElementById("books")?.scrollIntoView({
+    behavior:"smooth"
+  });
+
+  document.querySelector(".recommended").scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function openLogin(){
+
+  document.getElementById("loginModal").classList.add("show");
+
+}
+
+
+function closeLogin(){
+
+  document.getElementById("loginModal").classList.remove("show");
+
+}
+
+
+function login(){
+
+  alert("تم تسجيل الدخول تجريبيًا 🤎");
+
+  closeLogin();
+
+}
+
+
+/* =========================
+   SUGGEST BOOK
+========================= */
+
+function openSuggestion(){
+
+  openLogin();
+
+}
+
+
+/* =========================
+   NEWSLETTER
+========================= */
+
+function subscribe(){
+
+  alert("تم الاشتراك في نشرة رَف بنجاح 🌿");
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchBooks(){
+
+  const value =
+    document.getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+  const cards =
+    document.querySelectorAll(".book-card");
+
+  cards.forEach(card=>{
+
+    const text =
+      card.innerText.toLowerCase();
+
+    if(text.includes(value)){
+      card.style.display="block";
+    }else{
+      card.style.display="none";
+    }
+
+  });
+
+}
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+document
+  .getElementById("loginModal")
+  .addEventListener("click",function(e){
+
+    if(e.target===this){
+      closeLogin();
+    }
+
+  });
+
+</script>
+
+</body>
+</html>
