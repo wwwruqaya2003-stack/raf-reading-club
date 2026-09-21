@@ -2537,5 +2537,83 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const bookCards = document.querySelectorAll(".book-card");
+
+  bookCards.forEach(function(card) {
+
+    card.addEventListener("click", function(e) {
+
+      e.stopImmediatePropagation();
+
+      const cardText = card.innerText.trim();
+
+      /* كتاب 1984 */
+      if (
+        cardText.includes("1984") ||
+        cardText.includes("١٩٨٤")
+      ) {
+
+        openDetail(
+          "📚 كتاب",
+          "1984",
+          "جورج أورويل",
+          "https://images.unsplash.com/photo-1495446815901-a7297e633e8d",
+          "رواية ديستوبية تدور حول مجتمع تهيمن عليه المراقبة والسلطة، وتطرح أسئلة عن الحرية والحقيقة والسيطرة على حياة الأفراد."
+        );
+
+        return;
+      }
+
+      /* مئة عام من العزلة */
+      if (cardText.includes("مئة عام من العزلة")) {
+
+        openDetail(
+          "📚 كتاب",
+          "مئة عام من العزلة",
+          "غابرييل غارسيا ماركيز",
+          "https://images.unsplash.com/photo-1544947950-fa07a98d237f",
+          "رواية أدبية تتبع أجيال عائلة واحدة وتمزج بين الواقع والخيال في عالم مليء بالأحداث والشخصيات."
+        );
+
+        return;
+      }
+
+      /* الخيميائي */
+      if (cardText.includes("الخيميائي")) {
+
+        openDetail(
+          "📚 كتاب",
+          "الخيميائي",
+          "باولو كويلو",
+          "https://images.unsplash.com/photo-1512820790803-83ca734da794",
+          "رحلة شاب يبحث عن حلمه، وخلال رحلته يكتشف الكثير عن الطموح والاختيار واكتشاف الذات."
+        );
+
+        return;
+      }
+
+      /* الأمير الصغير */
+      if (cardText.includes("الأمير الصغير")) {
+
+        openDetail(
+          "📚 كتاب",
+          "الأمير الصغير",
+          "أنطوان دو سانت إكزوبيري",
+          "https://images.unsplash.com/photo-1543002588-bfa74002ed7e",
+          "حكاية تحمل أفكارًا عن الصداقة والحب وطريقة نظر الإنسان إلى العالم."
+        );
+
+        return;
+      }
+
+    }, true);
+
+  });
+
+});
+</script>
 </body>
 </html>
