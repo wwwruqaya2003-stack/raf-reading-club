@@ -2514,5 +2514,28 @@ document.addEventListener("keydown", function(e) {
   }
 });
 </script>
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const books = document.querySelectorAll(".book-card");
+
+  if (books.length > 0) {
+
+    books[0].onclick = function () {
+
+      openDetail(
+        "📚 كتاب",
+        "1984",
+        "جورج أورويل",
+        "https://images.unsplash.com/photo-1495446815901-a7297e633e8d",
+        "رواية ديستوبية تدور في عالم تهيمن فيه السلطة والمراقبة على حياة الناس، وتطرح أسئلة عن الحرية والحقيقة والسيطرة على المجتمع."
+      );
+
+    };
+
+  }
+
+});
+</script>
 </body>
 </html>
